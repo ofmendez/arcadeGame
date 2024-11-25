@@ -1,0 +1,22 @@
+{
+	"name": "visualcomputing",
+	"module": "index.js",
+	"type": "module",
+	"devDependencies": {
+		"esbuild": "^0.19.6",
+		"eslint": "^8.54.0",
+		"standard": "^17.1.0"
+	},
+	"eslintConfig": {
+		"extends": "./node_modules/standard/eslintrc.json",
+		"rules": {
+			"semi": [2, "always"],
+			"indent": [2, "tab"],
+			"react/jsx-indent": [2, "tab"],
+			"no-tabs": 0,
+			"curly": [2, "multi"],
+			"react/jsx-indent-props": [2, "tab"],
+			"no-unused-vars": "warn"
+		}
+	}
+}
