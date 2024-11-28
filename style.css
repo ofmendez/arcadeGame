@@ -2,12 +2,9 @@ html,
 body {
 	touch-action: pan-down;
 	overflow: hidden;
-}
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-canvas {
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-color: black;
 }
