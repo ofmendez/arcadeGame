@@ -7,4 +7,11 @@ body {
 	align-items: center;
 	height: 100%;
 	background-color: black;
+	flex-direction: column;
 }
+
+canvas {
+	outline: 9px solid black;
+	outline-offset: -9px;
+}
+
