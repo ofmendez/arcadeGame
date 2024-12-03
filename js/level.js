@@ -31,7 +31,7 @@ const level = [
 ];
 
 function drawLevel () {
-	// fill('#F00');
+	push();
 	rect(8.7 * scl, 6.6 * scl, 3.6 * scl, 0.8 * scl);
 	rect(8.7 * scl, 16.6 * scl, 3.6 * scl, 0.8 * scl);
 	rect(8.7 * scl, 21.6 * scl, 3.6 * scl, 0.8 * scl);
@@ -46,4 +46,5 @@ function drawLevel () {
 				strokeWeight(15);
 				rect(j * scl, i * scl, scl, scl);
 			}
+	pop();
 }

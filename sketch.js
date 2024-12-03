@@ -13,7 +13,7 @@ function setup () {
 	vw = 7 / 9 * vh;
 	createCanvas(vw, vh);
 	background('#2f2fcf');
-	// frameRate(24);
+	frameRate(2);
 	fill(0);
 
 	cols = floor(width / scl);
@@ -22,13 +22,14 @@ function setup () {
 	initSwipe();
 	drawLevel();
 	player = new Player(scl);
-	fill(255);
+	// fill(255);
 	text(`vw: ${vw}`, 100, 100);
+	drawPellets();
 }
 
 function draw () {
+	player.update();
 	player.draw();
-	drawPellets();
 }
 
 function keyPressed () {

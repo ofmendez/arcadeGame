@@ -3,34 +3,28 @@
 class Player {
 	constructor (s) {
 		this.pos = createVector(10 * s + (s / 2), 20 * s + (s / 2));
-		this.apertures = [0, 10, 20, 30, 40, 50];
-		this.currentAperture = 0;
+		this.biteSize = PI / 8;
+	}
+
+	update () {
+		this.pos.y += 1;
+		const yy = (this.pos.y + 10) / 20;
+		console.log((yy));
 	}
 
 	draw () {
-		// stroke('#FF0');
-		// strokeWeight(28);
-		// point(this.pos.x, this.pos.y);
-		// noStroke();
-		// const ap = this.getAperture();
-		// triangle(
-		// 	this.pos.x, this.pos.y,
-		// 	this.pos.x - 14, this.pos.y + ap,
-		// 	this.pos.x - 14, this.pos.y - ap
-		// );
-		fill(255, 255, 0);
+		push();
+		fill(0);
+		rect(this.pos.x - 15, this.pos.y - 15, 30, 30);
+		fill('#FF0');
+		const dir = 0; // RIGHT
+		// const dir = PI // LEFT
+		// const dir = HALF_PI // DOWN
+		// const dir = -HALF_PI // UP
 
-		// Update start and stop angles.
-		const biteSize = PI / 16;
-		const startAngle = biteSize * sin(frameCount * 0.1) + biteSize;
-		const endAngle = TWO_PI - startAngle;
-
-		// Draw the arc.
-		arc(50, 50, 80, 80, startAngle, endAngle, PIE);
-	}
-
-	getAperture () {
-		this.currentAperture = (this.currentAperture + 1) % this.apertures.length;
-		return this.apertures[this.currentAperture];
+		const ini = dir + this.biteSize * sin(frameCount * 0.4) + this.biteSize;
+		const end = -ini + 2 * dir;
+		arc(this.pos.x, this.pos.y, 30, 30, ini, end, PIE);
+		pop();
 	}
 }

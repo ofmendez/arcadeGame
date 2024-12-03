@@ -31,6 +31,7 @@ const pellets = [
 ];
 
 function drawPellets () {
+	push();
 	for (let i = 0; i < level.length; i++)
 		for (let j = 0; j < 21; j++)
 			if (getGridArrayBit(pellets, i, j)) {
@@ -38,4 +39,5 @@ function drawPellets () {
 				strokeWeight(hscl / 2);
 				point(j * scl + hscl, i * scl + hscl);
 			}
+	pop();
 }
