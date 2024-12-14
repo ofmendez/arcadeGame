@@ -11,20 +11,21 @@ function getGridArrayBit (array, row, col) {
 function setup () {
 	vh = 540;
 	vw = 7 / 9 * vh;
+	frameRate(8);
+	
 	createCanvas(vw, vh);
 	background('#2f2fcf');
-	frameRate(2);
 	fill(0);
-
+	
 	cols = floor(width / scl);
 	rows = floor(height / scl);
-
+	
 	initSwipe();
-	drawLevel();
-	player = new Player(scl);
-	// fill(255);
-	text(`vw: ${vw}`, 100, 100);
-	drawPellets();
+	level1 = new Level1();
+	player = new Player(scl,level1);
+	// drawLevel();
+	// drawPellets();
+	llog();
 }
 
 function draw () {
@@ -34,26 +35,28 @@ function draw () {
 
 function keyPressed () {
 	if (keyCode === UP_ARROW)
-		snake.setDir(0, -1);
+		player.setDir(-HALF_PI);
 	else if (keyCode === DOWN_ARROW)
-		snake.setDir(0, 1);
+		player.setDir(HALF_PI);
 	else if (keyCode === RIGHT_ARROW)
-		snake.setDir(1, 0);
+		player.setDir(0);
 	else if (keyCode === LEFT_ARROW)
-		snake.setDir(-1, 0);
-	else if (key === 'r') {
-		snake = new Snake();
-		loop();
-	}
+		player.setDir(PI);
 }
 
 function SwipeOf (e) {
 	if (e === UP_ARROW)
-		snake.setDir(0, -1);
+		player.setDir(-HALF_PI);
 	else if (e === DOWN_ARROW)
-		snake.setDir(0, 1);
+		player.setDir(HALF_PI);
 	else if (e === RIGHT_ARROW)
-		snake.setDir(1, 0);
+		player.setDir(0);
 	else if (e === LEFT_ARROW)
-		snake.setDir(-1, 0);
+		player.setDir(PI);
+}
+function llog() {
+	push();
+	fill(255);
+	text(`vw: ${vw}`, 100, 100);
+	pop();
 }
