@@ -11,7 +11,7 @@ function getGridArrayBit (array, row, col) {
 function setup () {
 	vh = 540;
 	vw = 7 / 9 * vh;
-	frameRate(8);
+	frameRate(2);
 	
 	createCanvas(vw, vh);
 	background('#2f2fcf');

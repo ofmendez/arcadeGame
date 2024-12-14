@@ -42,15 +42,19 @@ class Level1 extends Level {
 	}
 
 	updatePlayer(player) {
-		const newX = floor(player.pos.x + cos(player.dir) )
-		const newY = floor(player.pos.y + sin(player.dir) ) 
-		console.log('-> ', newX, ' - ', newY);
-		if (getGridArrayBit(this.walls, newY, newX)){
-			player.accX = 0;
-			player.accY = 0;
+		let newX = floor(player.pos.x + cos(player.targetDir) )
+		let newY = floor(player.pos.y + sin(player.targetDir) ) 
+		if (!getGridArrayBit(this.walls, newY, newX)){
+			player.confirmDir();
+			player.move();
 			return;
 		}
-		player.move();
+		newX = floor(player.pos.x + cos(player.dir) )
+		newY = floor(player.pos.y + sin(player.dir) ) 
+		if (!getGridArrayBit(this.walls, newY, newX)){
+			player.move();
+			return;
+		}
 
 
 		// const xx = Math.trunc((player.pos.x ) );
