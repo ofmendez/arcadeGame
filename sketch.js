@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 let cols, rows, vh, vw;
 const scl = 20;
 const hscl = scl / 2;
@@ -11,7 +9,7 @@ function getGridArrayBit (array, row, col) {
 function setup () {
 	vh = 540;
 	vw = 7 / 9 * vh;
-	frameRate(2);
+	frameRate(60);
 	
 	createCanvas(vw, vh);
 	background('#2f2fcf');
@@ -21,10 +19,9 @@ function setup () {
 	rows = floor(height / scl);
 	
 	initSwipe();
-	level1 = new Level1();
+	pellets = new Pellets();
+	level1 = new Level1(pellets);
 	player = new Player(scl,level1);
-	// drawLevel();
-	// drawPellets();
 	llog();
 }
 
@@ -57,6 +54,6 @@ function SwipeOf (e) {
 function llog() {
 	push();
 	fill(255);
-	text(`vw: ${vw}`, 100, 100);
+	// text(`vw: ${vw}`, 100, 100);
 	pop();
 }
